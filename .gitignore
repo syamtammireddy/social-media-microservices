@@ -1,0 +1,18 @@
+# Node modules
+node_modules/
+
+# Logs
+npm-debug.log*
+
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+
+# Uploads (VERY IMPORTANT)
+post-service/uploads/*
+!post-service/uploads/.gitkeep
+
+# Docker
+*.log
