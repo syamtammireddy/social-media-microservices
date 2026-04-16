@@ -13,16 +13,27 @@ let services = {
   notification: true
 };
 
-app.get("/services", (req, res) => res.json(services));
+app.get("/services", (req, res) => {
+  res.json({ success: true, data: services, message: "Services retrieved successfully" });
+});
 
 app.get("/services/:name", (req, res) => {
-  res.json({ status: services[req.params.name] });
+  const serviceStatus = services[req.params.name];
+  if (serviceStatus !== undefined) {
+    res.json({ success: true, data: { status: serviceStatus }, message: "Service status retrieved" });
+  } else {
+    res.status(404).json({ success: false, data: null, message: "Service not found" });
+  }
 });
 
 app.post("/toggle", (req, res) => {
   const { service, status } = req.body;
-  services[service] = status;
-  res.json(services);
+  if (services[service] !== undefined) {
+    services[service] = status;
+    res.json({ success: true, data: services, message: `Service ${service} toggled to ${status}` });
+  } else {
+    res.status(404).json({ success: false, data: null, message: "Service not found" });
+  }
 });
 
-app.listen(4000, () => console.log("Controller running"));
+app.listen(4000, () => console.log("Controller running on port 4000"));
