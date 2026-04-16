@@ -258,30 +258,3 @@ git push origin main
 Follow API contracts strictly.
 
 This project depends on consistency across services.
-WORKFLOW
-
-Step 1: Setup repo, folder structure, README, API contracts
-
-Step 2: Create branches and start parallel development (each service separately)
-
-Step 3: Implement and test each service locally (basic APIs working)
-
-Step 4: Integrate all services using Docker Compose
-
-Step 5: Test complete flow via API Gateway (login, post, feed, etc.)
-
-Step 6: Fix bugs and stabilize system (ensure all services communicate properly)
-
-Step 7: Build Docker images for each service
-
-Step 8: Set up Kubernetes (Minikube)
-
-Step 9: Create Kubernetes YAML files (Deployment + Service for each microservice)
-
-Step 10: Deploy all services using kubectl apply
-
-Step 11: Verify pods, services, and scaling in Kubernetes
-
-Step 12: Build frontend (React) and connect to API Gateway
-
-Step 13: Final testing + demo
