@@ -2,37 +2,6 @@ version: "3"
 
 services:
 
-  # 🗄️ DATABASES
-  mongo-auth:
-    image: mongo
-    ports:
-      - "27018:27017"
-
-  mongo-user:
-    image: mongo
-    ports:
-      - "27019:27017"
-
-  mongo-post:
-    image: mongo
-    ports:
-      - "27020:27017"
-
-  mongo-friend:
-    image: mongo
-    ports:
-      - "27021:27017"
-
-  mongo-comment:
-    image: mongo
-    ports:
-      - "27022:27017"
-
-  mongo-notify:
-    image: mongo
-    ports:
-      - "27023:27017"
-
   # 🎛️ CONTROLLER
   controller-service:
     build: ./controller-service
@@ -42,32 +11,24 @@ services:
   # 🔐 AUTH
   auth-service:
     build: ./auth-service
-    depends_on:
-      - mongo-auth
     ports:
       - "4001:4001"
 
   # 👤 USER
   user-service:
     build: ./user-service
-    depends_on:
-      - mongo-user
     ports:
       - "4002:4002"
 
   # 🤝 FRIEND
   friend-service:
     build: ./friend-service
-    depends_on:
-      - mongo-friend
     ports:
       - "4006:4006"
 
   # 📝 POST (WITH IMAGE 🔥)
   post-service:
     build: ./post-service
-    depends_on:
-      - mongo-post
     ports:
       - "4003:4003"
     volumes:
@@ -82,16 +43,12 @@ services:
   # 💬 COMMENT
   comment-service:
     build: ./comment-service
-    depends_on:
-      - mongo-comment
     ports:
       - "4005:4005"
 
   # 🔔 NOTIFICATION
   notification-service:
     build: ./notification-service
-    depends_on:
-      - mongo-notify
     ports:
       - "4007:4007"
 

@@ -5,7 +5,7 @@ const axios = require("axios");
 const app = express();
 app.use(express.json());
 
-mongoose.connect("mongodb://mongo-comment:27017/comment-db");
+mongoose.connect("mongodb+srv://handicrafts:test123@cluster0.uohcfax.mongodb.net/comment-db?retryWrites=true&w=majority&appName=Cluster0");
 
 const Comment = mongoose.model("Comment", {
   userId: String,

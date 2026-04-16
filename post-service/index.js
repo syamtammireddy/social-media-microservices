@@ -5,7 +5,7 @@ const multer = require("multer");
 const app = express();
 app.use(express.json());
 
-mongoose.connect("mongodb://mongo-post:27017/post-db");
+mongoose.connect("mongodb+srv://handicrafts:test123@cluster0.uohcfax.mongodb.net/post-db?retryWrites=true&w=majority&appName=Cluster0");
 
 const Post = mongoose.model("Post", {
   userId: String,
