@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 app.use(express.json());
 
-mongoose.connect("mongodb+srv://handicrafts:test123@cluster0.uohcfax.mongodb.net/auth-db?retryWrites=true&w=majority&appName=Cluster0");
+ster0.uohcmongoose.connect("mongodb+srv://handicrafts:test123@clufax.mongodb.net/auth-db?retryWrites=true&w=majority&appName=Cluster0");
 
 const User = mongoose.model("User", {
   username: String,

@@ -17,7 +17,7 @@ const Comment = mongoose.model("Comment", {
 app.post("/comment", async (req, res) => {
   try {
     const data = await Comment.create(req.body);
-    
+
     // Notify the Notification Service (Fire and Forget)
     axios.post("http://notification-service:4007/notify", {
       userId: req.body.userId, // Sending to whoever needs it natively (usually post owner, but we just pass what we have)
